@@ -1,0 +1,9 @@
+Utworzenie projektu: django-admin startproject mysite
+
+Uruchomienie serwera: py manage.py runserver
+
+Tworzenie tabeli w bazie danych: py manage.py migrate
+
+Przy zmianach w bazie kończe poleceniem: py manage.py makemigrations polls
+
+Tworzenie admina: py manage.py createsuperuser
