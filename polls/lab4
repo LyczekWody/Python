@@ -1,0 +1,39 @@
+Funkcja Lapunowa
+W przedstawionych ćwiczeniach funkcja Lapunowa 𝑉(𝑥) jest stosowana do badania
+stabilności układu
+𝑥̇ = 𝑓(𝑥), 𝑥 ∈ ℝ௡
+1. Co oznacza, że punkt równowagi jest stabilny ? Co oznacza, że punkt równowagi jest
+stabilny asymptotycznie ?
+2. Podstawowe właściwości funkcji Lapunowa
+Narysuj funkcję 𝑉(𝑥ଵ, 𝑥ଶ) = 𝑥ଵ
+ଶ + 𝑥ଶ
+ଶ.
+Wskaż, dlaczego funkcja 𝑉(𝑥) jest skalarna, wypukła, nieujemna oraz posiada ciągłą
+pochodną.
+Na otrzymanym wykresie wykreśl kilka przykładowych kierunków zmian funkcji, czyli
+wektory ∇𝑉(𝑥ଵ, 𝑥ଶ)
+3. Orientacja zmian funkcji Lapunowa ∇𝑉(𝑥ଵ, 𝑥ଶ) względem funkcji 𝑓(𝑥)
+Na otrzymanym rysunku dorysuj kilka możliwych położeń funkcji 𝑓(𝑥) (funkcja
+skierowana na zewnątrz, do środka, styczna do 𝑉). Która z zaobserwowanych sytuacji
+wskazuje na stabilność układu ?
+4. Stabilność w sensie Lapunowa
+Niech: (a) 𝑥∗ = 0 będzie punktem równowagi dla układu 𝑥̇ = 𝑓(𝑥)
+(b)𝑉(𝑥) będzie funkcją skalarną, wypukłą, nieujemną oraz posiadającą ciągłą pochodną
+Jeżeli (1) 𝑉(0) = 0 i 𝑉(𝑥) > 0 dla 𝑥 = 0 oraz
+(2) 𝑉̇ (𝑥) ≤ 0
+wtedy punkt 𝑥∗ jest stabilny.
+Jeżeli (2) 𝑉̇ (𝑥) < 0,
+wtedy punkt 𝑥∗ jest asymptotycznie stabilny
+Jeżeli (2) 𝑉̇ (𝑥) ≤ 0 oraz 𝑉̇ (𝑥) = 0 tylko dla 𝑥 = 𝑥∗,
+wtedy punkt 𝑥∗ jest asymptotycznie stabilny
+Zaproponuj implementację przedstawionych reguł logicznych
+5. Układowi 𝑥̇ = −𝑥
+odpowiada funkcji Lapunowa 𝑉(𝑥) = 𝑥ଶ, ponieważ
+𝑉̇ (𝑥) = 2𝑥𝑥̇ = −2𝑥ଶ
+Z tego wynika, że punkt równowagi 𝑥∗ jest asymptotycznie stabilny.
+Rozwiąż to zadanie za pomocą programu z zadania nr 4. Zaproponuj metodę obliczania
+funkcji 𝑉̇ (𝑥) (numeryczną lub symboliczną).
+W sprawozdaniu należy opisać:
+a) czego dotyczyło laboratorium,
+b) przedstawić sposób rozwiązania zadań 1-5,
+c) jakie są zalety i wady omawianego zagadnienia.
