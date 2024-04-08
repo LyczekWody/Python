@@ -1,0 +1,66 @@
+% Definicja funkcji Lapunowa V(x1, x2) = x1^2 + x2^2
+V = @(x1, x2) x1.^2 + x2.^2;
+
+% Definicja funkcji dynamiki f(x1, x2) - przykładowa funkcja
+f = @(x1, x2) [-x2; x1]; % Przykładowa funkcja dynamiki dla układu nieliniowego
+
+% Tworzenie siatki punktów (x1, x2) do wykresu
+[x1, x2] = meshgrid(-2:0.1:2, -2:0.1:2);
+
+% Obliczanie wartości funkcji V(x1, x2) na siatce
+values_V = V(x1, x2);
+
+% Rysowanie konturów funkcji Lapunowa V(x1, x2)
+figure;
+contour(x1, x2, values_V, 20); % 20 poziomów konturów
+hold on;
+
+% Definicja punktu równowagi (np. (0,0))
+equilibrium_point = [0; 0];
+
+% Obliczanie gradientu funkcji Lapunowa ∇V(x1, x2) = (2*x1, 2*x2) w punkcie równowagi
+gradient_V_at_equilibrium = [2 * equilibrium_point(1); 2 * equilibrium_point(2)];
+
+% Rysowanie wektora gradientu funkcji Lapunowa w punkcie równowagi
+quiver(equilibrium_point(1), equilibrium_point(2), gradient_V_at_equilibrium(1), gradient_V_at_equilibrium(2), 'b', 'LineWidth', 2);
+
+% Definicja i rysowanie wektorów funkcji dynamiki f(x) w różnych punktach
+points = [1 1; -1 1; 0 -2]; % Przykładowe punkty (x1, x2)
+
+for i = 1:size(points, 1)
+    x1_point = points(i, 1);
+    x2_point = points(i, 2);
+    
+    % Obliczanie wartości funkcji dynamiki f(x) w punkcie (x1_point, x2_point)
+    f_at_point = f(x1_point, x2_point);
+    
+    % Obliczanie iloczynu skalarnego ∇V(x) ⋅ f(x) w punkcie (x1_point, x2_point)
+    scalar_product = dot(gradient_V_at_equilibrium, f_at_point);
+    
+    % Rysowanie wektora funkcji dynamiki f(x) w punkcie (x1_point, x2_point)
+    quiver(x1_point, x2_point, f_at_point(1), f_at_point(2), 'r', 'LineWidth', 2);
+    
+    % Dodanie adnotacji na wykresie
+    text(x1_point + 0.1, x2_point + 0.1, sprintf('%.2f', scalar_product), 'Color', 'k');
+    
+    % Określenie stabilności na podstawie znaku iloczynu skalarnego
+    if scalar_product > 0
+        text(x1_point + 0.1, x2_point - 0.1, 'Niestabilny', 'Color', 'r');
+    elseif scalar_product < 0
+        text(x1_point + 0.1, x2_point - 0.1, 'Stabilny', 'Color', 'g');
+    else
+        text(x1_point + 0.1, x2_point - 0.1, 'Brak informacji', 'Color', 'b');
+    end
+end
+
+% Dodanie tytułu i etykiet osi
+title('Orientacja zmian funkcji Lapunowa ∇V(x) względem funkcji f(x)');
+xlabel('x_1');
+ylabel('x_2');
+axis equal;
+grid on;
+
+% Legenda dla wektorów gradientu i wektorów funkcji dynamiki
+legend('Kontury V(x)', 'Gradient ∇V(x) w punkcie równowagi', 'f(x)', 'Location', 'Northwest');
+
+hold off;
